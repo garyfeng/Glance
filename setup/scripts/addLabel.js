@@ -8,7 +8,7 @@ $(document).ready(function(){
   });
 
     $("#labelControls *").disable(); //initially disable the controls div
-	 
+
     var barWasAdded = false;//true when the bar is added
     var submittedOnce = false;
 
@@ -34,7 +34,7 @@ $(document).ready(function(){
 
       //adds new button
       // var color = getRandomColor();
-      // $("#tabs").append("<button style = 'background:" + color + " !important;' id = 'sessionButton" + numButtonsOnPage + "'class='pure-button sessionButton' onclick='sessionButtonClick(" + numButtonsOnPage + ")'/>" + $("#action").val() + " <input class = 'sessionCheckbox' id='showSession" + numButtonsOnPage + "' type='checkbox'/></button></br>"); 
+      // $("#tabs").append("<button style = 'background:" + color + " !important;' id = 'sessionButton" + numButtonsOnPage + "'class='pure-button sessionButton' onclick='sessionButtonClick(" + numButtonsOnPage + ")'/>" + $("#action").val() + " <input class = 'sessionCheckbox' id='showSession" + numButtonsOnPage + "' type='checkbox'/></button></br>");
 
         var mturk = $('#mturkSelect').val();//stores if session using mturk/sandbox/live
         var clipLength = $('#clipLength').val();//stores length of the clip for session
@@ -55,7 +55,7 @@ $(document).ready(function(){
             url: "php/addDbRow.php",
             data: {session: session, start: initialStartTime, end: initialEndTime, clipStart: clipStartingTime, clipEnd: clipEndingTime, videoId: videoId, action: $("#action").val(), description: $("#description").val(), trial: "", clipIndex: -1, mturk: mturk, clipLength: clipLength, initialStart: initialStartTime, initialEnd: initialEndTime},
             success: function() {
-              //alert("added initial row to db");
+              alert("added initial row to db");
             },
             fail: function(){
               alert("Failed to add row to db");
@@ -86,21 +86,21 @@ console.log("LANDED")
     });
 
     //shows range slider if video has been loaded and user clicks on label adding div
-	
+
     $("#addLabels").on("click", function(event){
         //don't do anything if the "get labels" button was clicked
         if($(event.target).is('#getLabelsButton')){
-						
+
         }else if($(event.target).is('#showOptions')){
-		
+
           	event.preventDefault();
           	$('#options').slideToggle();
 		  	return true;
-			
+
         }
-		
+
 		isVideoLoaded = true;
-		
+
         if(isVideoLoaded == true){
             if(!barWasAdded){
                 barWasAdded = true;
@@ -108,20 +108,20 @@ console.log("LANDED")
             }
         }
         else{
-			
+
             barWasAdded = false;
             alert("You must load a video before you can add labels.");
-			
-        } 
+
+        }
 
         // $('#showOptions').on('click', function(event){
         //   event.preventDefault();
         //   $('#options').slideToggle();
         // });
     });
-	
-	
-    
+
+
+
   //  $('#t').focusout(function() {
   // 		   		var time_entry = $("#t").val();
 
@@ -129,7 +129,7 @@ console.log("LANDED")
   //  			alert('Your search string contains illegal characters.');
 		// }
 
-   		
+
   //  		if(time_entry.indexOf("\:") !==  -1 ){ //checks if colon was entered
   //  			var str_seconds = time_entry.slice(-2); //gets seconds from string
   //  			if(isNaN(str_seconds) == true){ //checks if econds are a number
@@ -151,7 +151,7 @@ console.log("LANDED")
   //  				$('#t').val('');
   //  			}
   //  		}
-   	// }); 
+   	// });
 
 });
 
@@ -191,7 +191,7 @@ function sessionButtonClick(buttonNum){
     $( "#sessionButton" + buttonNum ).removeClass( "pure-button-active buttonIsActive" );
     $("#labelControls *").disable(); //initially disable the controls div
   }
-  
+
   // If the button isnt active yet
   else{
 
@@ -220,7 +220,9 @@ function sessionButtonClick(buttonNum){
       raiseSamplingPercent(buttonNum)
     });
 
-    loadIframe("vis_tool_iframe", "http://roc.cs.rochester.edu/convInterface/videocoding/tools/vis_tools/?session=" + sessions[buttonNum] + "&amp;details=true&embedded=true");
+    //loadIframe("vis_tool_iframe", "http://roc.cs.rochester.edu/convInterface/videocoding/tools/vis_tools/?session=" + sessions[buttonNum] + "&amp;details=true&embedded=true");
+    // garyfeng
+    loadIframe("vis_tool_iframe", "../vis_tools/?session=" + sessions[buttonNum] + "&amp;details=true&embedded=true");
 
   }
 }
@@ -240,7 +242,7 @@ $.fn.enable = function() {
 function loadIframe(iframeName, url) {
     var $iframe = $('#' + iframeName);
     if ( $iframe.length ) {
-        $iframe.attr('src',url);   
+        $iframe.attr('src',url);
         return false;
     }
     return true;

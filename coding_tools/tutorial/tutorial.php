@@ -1,5 +1,5 @@
 <!doctype html>
- 
+
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -23,9 +23,9 @@
 
 <body>
 <div id="instructions_section">
-    
+
     <div class="expand"><a href="#" id="instruction_link">Click to hide instructions!</a></div>
-<div id="instructions_header">Instructions (Tutorial):</div> 
+<div id="instructions_header">Instructions (Tutorial):</div>
     <div class="content">
       <p> This is a tutorial to introduce you to our task. Once you are able to accuratley complete the tutorial, you will be forwarded to the main task. You will only be asked to complete the tutorial once.</p>
       <p> Mark each time you see <strong id = "action">gesturing towards the ball</strong> in the video.</p>
@@ -34,7 +34,7 @@
       <p> Mark each event by clicking the green button when it begins.</p>
       <p>Be as acurate as you can be.</p>
 
-      <p><u>Description of Event:</u> <span id ="description">Man gesturing towards red ball will his hand</span>.</p> 
+      <p><u>Description of Event:</u> <span id ="description">Man gesturing towards red ball will his hand</span>.</p>
     </div>
 </div>
 
@@ -61,7 +61,7 @@
 var url;
 $(document).ready(function(){
 
-<?php 
+<?php
   if($_REQUEST['justTutorial'] == true){
     echo "url = 'https://roc.cs.rochester.edu/LegionJS/LegionTools/Retainer/submitOnly.php?task=videocoding1';";
   }
@@ -71,7 +71,9 @@ $(document).ready(function(){
 ?>
 
   // alert(gup("useRetainer"));
-  url = "https://roc.cs.rochester.edu/convInterface/videocoding/tools/workrouter/index.php?" //bypass retainer
+  //url = "https://roc.cs.rochester.edu/convInterface/videocoding/tools/workrouter/index.php?" //bypass retainer
+  // garyfeng
+  url = "../workrouter/index.php?" //bypass retainer
   // url = "http://roc.cs.rochester.edu/LegionJS/LegionTools/Retainer/index.php?task=videocoding1";
   // url += "&setupId=" + gup("setupId");
   url += "turkSubmitTo=" + gup("turkSubmitTo");
@@ -107,7 +109,7 @@ $(document).ready(function(){
   <script src="scripts/logging.js"></script>
   <!-- // <script src="submitBehavior.js"></script> -->
   <script src="scripts/instructions.js"></script>
- 
+
 </body>
 </html>
 </body>

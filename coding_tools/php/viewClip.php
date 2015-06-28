@@ -11,13 +11,15 @@ try {
 } catch(PDOException $e) {
 	echo $e->getMessage();
 }
-	
+
 if($dbh) {
 	$sth = $dbh->prepare("SELECT * FROM setup WHERE session=:session AND clipIndex=:clipIndex");
     $sth->execute(array(':session'=>$session, ':clipIndex'=>$clipIndex));
     $results = $sth->fetchAll(PDO::FETCH_ASSOC);
     // print_r($results);
-    header( 'Location: http://roc.cs.rochester.edu/convInterface/videocoding/index.html?setupId=' . $results[0]['setupId'] ) ;
+		//header( 'Location: http://roc.cs.rochester.edu/convInterface/videocoding/index.html?setupId=' . $results[0]['setupId'] ) ;
+		// garyfeng: LOCALHOST ONLY
+		header( 'Location: http://localhost/Glance/index.html?setupId=' . $results[0]['setupId'] ) ;
 
 }
 else {

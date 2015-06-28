@@ -39,7 +39,9 @@ $(document).ready(function(){
 			        success: function(d) {
 						// If they have already done the tutorial
 						if( parseFloat(d) > 0 ) {
-							url = "https://roc.cs.rochester.edu/convInterface/videocoding/tools/workrouter/index.php?";
+              //url = "https://roc.cs.rochester.edu/convInterface/videocoding/tools/workrouter/index.php?";
+              // garyfeng
+              url = "../workrouter/index.php?";
 						}
 						else {
 							if(gup("mode") == "rabbit"){
@@ -54,7 +56,9 @@ $(document).ready(function(){
 
 				if(url == "") url = "tutorial/tutorial.php?";
 
-				if(gup("mode") == "justVideo") 	url = "https://roc.cs.rochester.edu/convInterface/videocoding/tools/workrouter/index.php?";
+        //if(gup("mode") == "justVideo") 	url = "https://roc.cs.rochester.edu/convInterface/videocoding/tools/workrouter/index.php?";
+        // garyfeng
+        if(gup("mode") == "justVideo") 	url = "../workrouter/index.php?";
 
 				// url += "?setupId=" + gup("setupId");
 				url += "turkSubmitTo=" + gup("turkSubmitTo");
@@ -71,7 +75,7 @@ $(document).ready(function(){
 					$("#continue").removeAttr('disabled');
 					// $(".instructions").hide();
 					// var buttonInterval = setInterval(function(){
-					// 	$("#continue").removeAttr('disabled');		
+					// 	$("#continue").removeAttr('disabled');
 					// 	$("#continue").attr('value', 'Continue');
 					// 	window.clearInterval(buttonInterval);
 
@@ -127,7 +131,7 @@ html,body {
 }
 .container {
 	height: 70%;
-	overflow: scroll;	
+	overflow: scroll;
 	border: 3px solid #aaa;
 }
 .container,.consent {
@@ -192,7 +196,7 @@ The data captured for the research does not include any personally identifiable 
 
 <h2>Right to Ask Questions &amp; Contact Information</h2>
 <p>
-If you have any questions about this study, you should feel free to ask them by contacting the Principal Investigator now at Jeffrey P. Bigham, Human-Computer Interaction Institute, 5000 Forbes Ave, Pittsburgh, PA 15213. (412) 945-0708, jbigham@cs.cmu.edu. If you have questions later, desire additional information, or wish to withdraw your participation please contact the Principal Investigator by mail, phone or e-mail in accordance with the contact information listed above.  
+If you have any questions about this study, you should feel free to ask them by contacting the Principal Investigator now at Jeffrey P. Bigham, Human-Computer Interaction Institute, 5000 Forbes Ave, Pittsburgh, PA 15213. (412) 945-0708, jbigham@cs.cmu.edu. If you have questions later, desire additional information, or wish to withdraw your participation please contact the Principal Investigator by mail, phone or e-mail in accordance with the contact information listed above.
 </p>
 
 <p>
@@ -201,7 +205,7 @@ If you have questions pertaining to your rights as a research participant; or to
 
 <h3>Voluntary Participation</h3>
 <p>
-Your participation in this research is voluntary.  You may discontinue participation at any time during the research activity.  
+Your participation in this research is voluntary.  You may discontinue participation at any time during the research activity.
 </p>
 </div>
 <div class="consent" style="background-color: #EEE">
